@@ -44,6 +44,7 @@
 #include <rcsc/action/neck_scan_field.h>
 #include <rcsc/action/neck_turn_to_low_conf_teammate.h>
 #include <rcsc/action/body_clear_ball.h>
+#include<rcsc/action/body_smart_kick.h>
 
 #include <rcsc/action/neck_turn_to_ball_or_scan.h>
 #include <rcsc/action/neck_scan_field.h>
@@ -120,7 +121,10 @@ RoleKeepawayKeeper::doKick( PlayerAgent * agent )
     const int mate_min = wm.interceptTable()->teammateReachCycle();
     const int opp_min = wm.interceptTable()->opponentReachCycle();
     
-    
+    int kick_step = ( agent->world().gameMode().type() != GameMode::PlayOn
+                      && agent->world().gameMode().type() != GameMode::GoalKick_
+                      ? 1
+                      : 3 );
     const Vector2D M_pos = wm.self().pos();
     
     
@@ -148,7 +152,9 @@ RoleKeepawayKeeper::doKick( PlayerAgent * agent )
 	if(Body_Pass::get_best_pass(wm,&pass_target,NULL,NULL))
 	{
 	  agent->doPointto(pass_target.x,pass_target.y);
-	  Body_Pass().execute(agent);
+// 	  Body_Pass().execute(agent);
+	  
+	  Body_SmartKick(pass_target,0,0.96,kick_step).execute(agent);
 	  agent->setNeckAction(new Neck_TurnToLowConfTeammate());
 	}
       }

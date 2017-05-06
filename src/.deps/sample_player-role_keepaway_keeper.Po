@@ -292,6 +292,8 @@ sample_player-role_keepaway_keeper.o: role_keepaway_keeper.cpp \
  /usr/local/include/rcsc/action/neck_turn_to_low_conf_teammate.h \
  /usr/local/include/rcsc/action/body_clear_ball.h \
  /usr/local/include/rcsc/action/body_clear_ball2009.h \
+ /usr/local/include/rcsc/action/body_smart_kick.h \
+ /usr/local/include/rcsc/action/kick_table.h \
  /usr/local/include/rcsc/action/neck_turn_to_ball_or_scan.h \
  /usr/local/include/rcsc/player/player_agent.h \
  /usr/local/include/rcsc/player/world_model.h \
@@ -1211,6 +1213,10 @@ strategy.h:
 /usr/local/include/rcsc/action/body_clear_ball.h:
 
 /usr/local/include/rcsc/action/body_clear_ball2009.h:
+
+/usr/local/include/rcsc/action/body_smart_kick.h:
+
+/usr/local/include/rcsc/action/kick_table.h:
 
 /usr/local/include/rcsc/action/neck_turn_to_ball_or_scan.h:
 
