@@ -1,1 +1,4 @@
 *.o
+sample_coach
+sample_train
+sample_player
